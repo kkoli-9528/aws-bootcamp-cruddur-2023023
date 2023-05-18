@@ -25,7 +25,7 @@ Make sure to give console access to the user and the custom password, and save t
 # Note:
 
 Use CLI Auto-promt to auto fill the cli command by pressing 'TAB'
-, to configure auto-prompt execute below aws cli command in your preferred terminal you want to use aws cki command:
+, to configure auto-prompt execute below aws cli command in your preferred terminal you want to use aws cli command:
 
 ``` aws --cli-auto-prompt ```
 
@@ -60,16 +60,16 @@ This code is actually installing the aws cli zip folder in workspace directory(w
 ```
 # Note: IMP Linux Commands
 
-`` gp open file-name `` to open file in the gitpod 
+ gp open file-name - to open file in the gitpod 
 
-`` echo $PATH `` to check all the paths in your linux OS
+ echo $PATH - to check all the paths in your linux OS
 
-`` env `` to check all the environment variables
+ env - to check all the environment variables
 
-`` env | grep PATH `` - ``|`` (Pipe command means the output of first command will go to 
-                              second command,``first command``| ``second command``).
+ env | grep PATH  - "|" (Pipe command means the output of first command will go to 
+                              second command, "first command" | "second command" ).
                             
-                       - `` grep `` is a way to search something linux. 
+                       - "grep" is a way to search something linux. 
 ```
 4. You won't be able to execute commands, you have to configure access keys in gitpod
 
@@ -77,7 +77,7 @@ This code is actually installing the aws cli zip folder in workspace directory(w
 
 6. Replace the place holder with your aws access key credentials, while executing the code below:
 
-```linux
+```bash
 export AWS_ACCESS_KEY_ID="YOUR_ACCESS_KEY_ID"
 export AWS_SECRET_ACCESS_KEY="YOUR_SECRET_ACCESS_KEY"
 export AWS_DEFAULT_REGION="YOUR_DEFAULT_REGION"
