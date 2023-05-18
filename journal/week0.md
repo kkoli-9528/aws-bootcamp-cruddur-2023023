@@ -25,13 +25,12 @@
 
 # Note:
 
-  Use CLI Auto-promt to auto fill the cli command by pressing 'TAB'
-  , to configure auto-prompt execute below aws cli command in your preferred terminal you want to use aws cli command:
+  Use CLI Auto-promt to auto fill the cli command by pressing 'TAB', to configure auto-prompt execute below aws cli command in your preferred terminal you want to use aws cli command:
 
   ``` aws --cli-auto-prompt ```
 
 2. Execute below command as describe in the below code:
-
+ 
    ``` aws sts get-caller-identity ```
 
    This command gives you the UserID, Account_ID, and Arn of your Account.
