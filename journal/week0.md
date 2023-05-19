@@ -1,5 +1,9 @@
 # Week 0 - Billing and Architecture
 
+# Prerequisite
+
+Befor creating an `IAM user` from the `root account` refer this https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_billing.html?icmpid=docs_iam_console#tutorial-billing-step2  link
+
 # Create a IAM User and generate and access keys:
 
 1. Use the official link to create IAM user https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console and search for `Creating IAM users (console)`
@@ -314,17 +318,19 @@ vscode:
 
  11. Type the following command to create cloudwatch alarm:
 
-    ``` aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm-config.json ```  
+    `` 
+       aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm-config.json 
+    ``  
 
  12. Check the created budget in the `AWS Management Console` in `CloudWatch Dashboard`
 
  13. Create a `tag` and push the `tag` using the following commands:
 
-    ```
+        ```bash
         git tag week1
 
         git push --tags
-    ```
+        ```
 
 
 
