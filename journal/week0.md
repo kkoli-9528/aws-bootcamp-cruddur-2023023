@@ -318,19 +318,17 @@ vscode:
 
  11. Type the following command to create cloudwatch alarm:
 
-    `` 
-       aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm-config.json 
-    ``  
+    ``` aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm-config.json ```  
 
  12. Check the created budget in the `AWS Management Console` in `CloudWatch Dashboard`
 
  13. Create a `tag` and push the `tag` using the following commands:
 
-        ```bash
-        git tag week1
+    ```bash
+    git tag week1
 
-        git push --tags
-        ```
+    git push --tags
+    ```
 
 
 
