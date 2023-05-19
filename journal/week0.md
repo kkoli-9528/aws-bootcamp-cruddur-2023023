@@ -25,9 +25,9 @@
 
 # Note:
 
-  Use CLI Auto-promt to auto fill the cli command by pressing 'TAB', to configure auto-prompt execute below aws cli command in your preferred terminal you want to use aws cli command:
+  Use CLI Auto-promt to auto fill the cli command by pressing `TAB`, to configure auto-prompt execute below aws cli command in your preferred terminal you want to use aws cli command:
 
-  ``` aws --cli-auto-prompt ```
+   ``` aws --cli-auto-prompt ```
 
 2. Execute below command as describe in the below code:
  
@@ -152,7 +152,190 @@ vscode:
 
 6. Check the `GitHub` to confirmation.
 
-7. Close the `Gitpod` tab and Open it with the `GitHub` and click on `Gitpod` button  
+7. Close the `Gitpod` tab.
+
+8. Open it with the `GitHub` and click on `Gitpod` button
+
+9. You will see that `Gitpod` is executing the commands of the `.gitpod.yml` file
+
+# Create a Billing Alarm and a Budget using CLI Commands:
+
+ 1. Type the following code to check your identity:
+
+    ``aws sts get-caller-identity``
+
+# Note: 
+
+  To learn how to use aws cli commands use the following https://docs.aws.amazon.com/cli/latest/index.html link
+
+ 2. From the examples of the `budget` cli commands create two file with name `budget.json` and `budget-notifications-with-subscribers.json` following are the codes of the files:
+ 
+    `` budget.json ``
+
+    ```
+    {
+    "BudgetLimit": {
+        "Amount": "1",
+        "Unit": "USD"
+    },
+    "BudgetName": "Example Tag Budget",
+    "BudgetType": "COST",
+    "CostFilters": {
+        "TagKeyValue": [
+            "user:Key$value1",
+            "user:Key$value2"
+        ]
+    },
+    "CostTypes": {
+        "IncludeCredit": true,
+        "IncludeDiscount": true,
+        "IncludeOtherSubscription": true,
+        "IncludeRecurring": true,
+        "IncludeRefund": true,
+        "IncludeSubscription": true,
+        "IncludeSupport": true,
+        "IncludeTax": true,
+        "IncludeUpfront": true,
+        "UseBlended": false
+    },
+    "TimePeriod": {
+        "Start": 1477958399,
+        "End": 3706473600
+    },
+    "TimeUnit": "MONTHLY"
+    }
+    ```
+    `` budget-notifications-with-subscribers.json ``
+
+    ```
+    [
+    {
+        "Notification": {
+            "ComparisonOperator": "GREATER_THAN",
+            "NotificationType": "ACTUAL",
+            "Threshold": 80,
+            "ThresholdType": "PERCENTAGE"
+        },
+        "Subscribers": [
+            {
+                "Address": "kk502319@gmail.com",
+                "SubscriptionType": "EMAIL"
+            }
+        ]
+    }
+    ]
+    ```
+
+ 3. If you want to set environment variables as your AWS_ACCOUNT_ID with your account id then type command:
+
+    ``` export ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text) ```
+
+    ``` export AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text) ```
+ 
+ 4. To check if you have set the environment variable type command:
+
+    ``` env | grep ACCOUNT_ ```
+
+ 4. For the `Gitpod` to remember your AWS_ACCOUNT_ID type command:
+
+    ``` gp env AWS_ACCOUNT_ID="YOUR_ACCOUNT_ID" ```
+   
+ ```Note replace the place holder with your ACCOUNT_ID```
+
+ 5. To create a budget in using cli paste the following command in your `Gitpod` terminal:
+
+    ```
+    aws budgets create-budget \
+    --account-id $ACCOUNT_ID \
+    --budget file://aws/json/budget.json \
+    --notifications-with-subscribers file://aws/json/budget-notifications-with-subscribers.json
+    ```
+ 
+ 6. Check the created budget in the `AWS Management Console` in `Budget Dashboard`
+
+ 7. To create an SNS topic type command:
+
+    ``` aws sns create-topic --name billing-alarm ```
+
+ 8. Copy the created sns topic and paste it in the place holder
+
+ 9. To create an `SNS Subscription` type command:
+
+    ```
+    aws sns subscribe \
+    --topic-arn YOUR_TOPIC_ARN \
+    --protocol email \
+    --notification-endpoint YOUR_EMAIL_ID
+    ```
+
+ ```Note replace the place holder with your Topic arn and your Email ID```
+
+ 10. To create an `Cloudwatch Alarm` create a file `alarm-config.json` and paste the code below:
+
+   ```
+   {
+    "AlarmName": "DailyEstimatedCharges",
+    "AlarmDescription": "This alarm would be triggered if the daily estimated charges exceeds 50$",
+    "ActionsEnabled": true,
+    "AlarmActions": [
+        "YOUR_SNS_TOPIC_ARN"
+    ],
+    "EvaluationPeriods": 1,
+    "DatapointsToAlarm": 1,
+    "Threshold": 1,
+    "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+    "TreatMissingData": "breaching",
+    "Metrics": [{
+        "Id": "m1",
+        "MetricStat": {
+            "Metric": {
+                "Namespace": "AWS/Billing",
+                "MetricName": "EstimatedCharges",
+                "Dimensions": [{
+                    "Name": "Currency",
+                    "Value": "USD"
+                }]
+            },
+            "Period": 86400,
+            "Stat": "Maximum"
+        },
+        "ReturnData": false
+    },
+    {
+        "Id": "e1",
+        "Expression": "IF(RATE(m1)>0,RATE(m1)*86400,0)",
+        "Label": "DailyEstimatedCharges",
+        "ReturnData": true
+    }]
+   }
+   ```
+
+ ```Note replace the place holder with your SNS Topic ARN```
+
+ 11. Type the following command to create cloudwatch alarm:
+
+    ``` aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm-config.json ```  
+
+ 12. Check the created budget in the `AWS Management Console` in `CloudWatch Dashboard`
+
+ 13. Create a `tag` and push the `tag` using the following commands:
+
+    ```
+        git tag week1
+
+        git push --tags
+    ```
+
+
+
+
+    
+
+
+
+
+
+
 
 
 

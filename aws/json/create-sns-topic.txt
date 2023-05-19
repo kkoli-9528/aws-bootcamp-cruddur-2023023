@@ -1,0 +1,3 @@
+aws sns create-topic --name YOUR_TOPIC_NAME
+
+Note replace the place holder with your Topic name

@@ -1,0 +1,6 @@
+aws sns subscribe \
+    --topic-arn YOUR_TOPIC_ARN \
+    --protocol email \
+    --notification-endpoint YOUR_EMAIL_ID
+
+    Note: replace the place holder with your Topic arn and your Email ID
