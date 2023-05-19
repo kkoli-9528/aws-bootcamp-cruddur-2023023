@@ -312,20 +312,20 @@ vscode:
         "ReturnData": true
     }]
     }
-    
+    ```
 
-       Note replace the place holder with your SNS Topic ARN```
+  ```Note replace the place holder with your SNS Topic ARN```
 
  11. Type the following command to create cloudwatch alarm:
 
-    ```aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm-config.json```  
+  ```aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm-config.json```  
 
  12. Check the created budget in the `AWS Management Console` in `CloudWatch Dashboard`
 
  13. Create a `tag` and push the `tag` using the following commands:
 
-    ```
-    git tag week1
-    
-    git push --tags
-    ```
+  ```bash
+  git tag week1
+
+  git push --tags
+  ```
