@@ -326,6 +326,7 @@ vscode:
 
     ```
     git tag week1
-
+    ```
+    ```
     git push --tags
     ```
