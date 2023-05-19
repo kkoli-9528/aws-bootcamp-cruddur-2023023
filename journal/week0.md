@@ -276,7 +276,7 @@ vscode:
 
  10. To create an `Cloudwatch Alarm` create a file `alarm-config.json` and paste the code below:
 
-    ```
+  ```
     {
     "AlarmName": "DailyEstimatedCharges",
     "AlarmDescription": "This alarm would be triggered if the daily estimated charges exceeds 50$",
@@ -312,7 +312,7 @@ vscode:
         "ReturnData": true
     }]
     }
-    ```
+  ```
 
   ```Note replace the place holder with your SNS Topic ARN```
 
