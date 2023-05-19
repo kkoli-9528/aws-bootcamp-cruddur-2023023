@@ -276,8 +276,8 @@ vscode:
 
  10. To create an `Cloudwatch Alarm` create a file `alarm-config.json` and paste the code below:
 
-   ```
-   {
+    ```
+    {
     "AlarmName": "DailyEstimatedCharges",
     "AlarmDescription": "This alarm would be triggered if the daily estimated charges exceeds 50$",
     "ActionsEnabled": true,
@@ -311,36 +311,21 @@ vscode:
         "Label": "DailyEstimatedCharges",
         "ReturnData": true
     }]
-   }
-   ```
+    }
+    ```
 
- ```Note replace the place holder with your SNS Topic ARN```
+    ```Note replace the place holder with your SNS Topic ARN```
 
  11. Type the following command to create cloudwatch alarm:
 
-    ``` aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm-config.json ```  
+    ```aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm-config.json```  
 
  12. Check the created budget in the `AWS Management Console` in `CloudWatch Dashboard`
 
  13. Create a `tag` and push the `tag` using the following commands:
 
-    ```bash
+    ```
     git tag week1
 
     git push --tags
     ```
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
