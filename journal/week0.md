@@ -312,9 +312,9 @@ vscode:
         "ReturnData": true
     }]
     }
-    ```
+    
 
-    ```Note replace the place holder with your SNS Topic ARN```
+       Note replace the place holder with your SNS Topic ARN```
 
  11. Type the following command to create cloudwatch alarm:
 
@@ -326,7 +326,6 @@ vscode:
 
     ```
     git tag week1
-    ```
-    ```
+    
     git push --tags
     ```
