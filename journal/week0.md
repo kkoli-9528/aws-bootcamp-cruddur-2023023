@@ -329,3 +329,12 @@ vscode:
 
   git push --tags
   ```
+  #### I have learned basics of AWS Organizations & AWS IAM from Ashish Rajan video on [AWS Organizations & AWS IAM Tutorial For Beginners](https://www.youtube.com/watch?v=4EMWBYVggQI&list=PLBfufR7vyJJ7k25byhRXJldB5AiwgNnWv&index=16).
+
+#### I have created Cruddur Logical Diagram using the Conceptual Diagram of the Cruddur App which was previously created. Following are the diagrams of Conceptual and Logical Diagram of Curddur App respectively:
+
+### Conceptual Diagram(Napkin Diagram):
+![Conceptual Diagram](assets/Conceptual-Diagram-Cruddur-App-2023.png)
+
+### Logical Diagram:
+![Logical Diagram](assets/Logical-Diagram-Cruddur-App-2023.png)
