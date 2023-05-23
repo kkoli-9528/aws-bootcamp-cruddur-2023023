@@ -338,3 +338,9 @@ vscode:
 
 ### Logical Diagram:
 ![Logical Diagram](assets/Logical-Diagram-Cruddur-App-2023.png)
+
+# Scrib Github History Of Sensitive Data:
+
+For Ex. In the `alarm-config.json` there is our `arn` for `sns` billing alarm .
+
+So to remove 
