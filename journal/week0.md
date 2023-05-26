@@ -343,4 +343,10 @@ vscode:
 
 For Ex. In the `alarm-config.json` there is our `arn` for `sns` billing alarm .
 
-So to remove 
+So to remove `arn` and other sensitive date like `credentials` we use `open source` tool's like [TruffleHog](https://github.com/trufflesecurity/trufflehog) to `find` the leaked credentials and [BFG](https://rtyley.github.io/bfg-repo-cleaner/) to `remove` the sesitive data from the commit history.
+
+#### Note: Before trying to do anything in main repository. Try to remove credentials in a test repository.
+
+1. First step is to `deactivate` the `access key` credentials and than `delete` the `access key` from the aws account.
+
+2. 
